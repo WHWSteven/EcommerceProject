@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ecommerce Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="container-fluid mt-4 mb-5">
+
+  <h1 class="text-center mb-4">Ecommerce Store</h1>
+
+  <div class="row">
+    <!-- FILTER PANEL -->
+    <aside class="col-md-2">
+      <h5 class="mb-2">Brand</h5>
+
+      <div class="form-check">
+        <input class="form-check-input brand-filter" type="checkbox" value="Nike" id="brandNike">
+        <label class="form-check-label" for="brandNike">Nike</label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input brand-filter" type="checkbox" value="Adidas" id="brandAdidas">
+        <label class="form-check-label" for="brandAdidas">Adidas</label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input brand-filter" type="checkbox" value="Puma" id="brandPuma">
+        <label class="form-check-label" for="brandPuma">Puma</label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input brand-filter" type="checkbox" value="New Balance" id="brandNewBalance">
+        <label class="form-check-label" for="brandNewBalance">New Balance</label>
+      </div>
+
+      <div class="form-check mb-3">
+        <input class="form-check-input brand-filter" type="checkbox" value="Converse" id="brandConverse">
+        <label class="form-check-label" for="brandConverse">Converse</label>
+      </div>
+
+      <h5 class="mb-2">Type</h5>
+
+      <div class="form-check">
+        <input class="form-check-input type-filter" type="checkbox" value="Sneakers" id="typeSneakers">
+        <label class="form-check-label" for="typeSneakers">Sneakers</label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input type-filter" type="checkbox" value="Running" id="typeRunning">
+        <label class="form-check-label" for="typeRunning">Running</label>
+      </div>
+
+      <div class="form-check mb-3">
+        <input class="form-check-input type-filter" type="checkbox" value="Casual" id="typeCasual">
+        <label class="form-check-label" for="typeCasual">Casual</label>
+      </div>
+
+      <button id="applyFiltersBtn" class="btn btn-primary btn-sm w-100">
+        Apply Filters
+      </button>
+    </aside>
+
+    <!-- PRODUCT GRID -->
+    <main class="col-md-7">
+
+      <div id="product-grid" class="row g-3"></div>
+
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <button id="prevBtn" class="btn btn-secondary">Previous</button>
+        <span id="pageInfo" class="fw-bold"></span>
+        <button id="nextBtn" class="btn btn-secondary">Next</button>
+      </div>
+    </main>
+    <!-- FAVORITES SIDEBAR -->
+<aside class="col-md-3">
+  <h5 class="mb-3">Favorites</h5>
+
+  <ul id="favorites-list" class="list-group">
+    <!-- Favorites go here -->
+  </ul>
+</aside>
+
+  </div>
+</div>
+<script src="js/home.js"></script>
+
+</body>
+</html>

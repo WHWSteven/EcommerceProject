@@ -1,0 +1,210 @@
+/* ===== Global ===== */
+:root {
+  --surface: #ffffff;
+  --bg: #f3f6fb;
+  --text: #1f2933;
+  --text-muted: #6b7280;
+  --primary: #2563eb;
+  --primary-dark: #1e4fc4;
+  --heart: #e11d48;
+}
+
+/* Global font: Inter only */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: 0.1px;
+}
+
+.container-fluid {
+  max-width: 1280px;
+}
+
+/* Page title */
+h1 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  font-size: 2.05rem;
+  margin-bottom: 1.4rem;
+}
+
+/* ===== Filter & Favorites Sidebars ===== */
+aside {
+  background-color: var(--surface);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(31, 41, 51, 0.06);
+  height: fit-content;
+}
+
+aside h5 {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+aside .form-check {
+  margin-bottom: 0.35rem;
+}
+
+/* ===== Product Cards ===== */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(31, 41, 51, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 16px 36px rgba(31, 41, 51, 0.18);
+}
+
+.card-img-top {
+  height: 240px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: transform 0.28s ease, opacity 0.2s ease;
+}
+
+.card-img-link {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img-link:hover img {
+  transform: scale(1.08);
+  opacity: 0.98;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.card-text {
+  margin-bottom: 0;
+}
+
+.card-text.brand-type {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* Price emphasis */
+.card-text.fw-bold {
+  font-size: 1.05rem;
+  color: var(--primary);
+}
+
+/* Buttons */
+.btn {
+  border-radius: 10px !important;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  color: #fff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.favorite-btn {
+  border-radius: 999px !important;
+}
+
+/* Heart icon in card */
+.heart-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 18px;
+  transition: all 0.15s ease;
+  z-index: 2;
+}
+
+.heart-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.heart-btn.active {
+  color: var(--heart);
+  border-color: rgba(225, 29, 72, 0.25);
+  background: rgba(225, 29, 72, 0.08);
+  box-shadow: 0 8px 18px rgba(225, 29, 72, 0.18);
+}
+
+.heart-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Product detail heart positioning */
+.product-hero {
+  position: relative;
+}
+
+.product-heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+/* ===== Pagination ===== */
+#pageInfo {
+  font-size: 0.95rem;
+}
+
+/* ===== Favorites List ===== */
+#favorites-list li {
+  font-size: 0.9rem;
+}
+
+/* Empty states */
+.alert {
+  margin-top: 2rem;
+}
