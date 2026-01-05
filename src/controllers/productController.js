@@ -1,3 +1,5 @@
+const { isDBConnected } = require("../config/db");
+
 const mongoose = require("mongoose");
 const { Product, VALID_BRANDS, VALID_TYPES } = require("../models/Product");
 
@@ -5,6 +7,16 @@ const PAGE_SIZE = 9;
 
 exports.getProducts = async (req, res, next) => {
   try {
+    if (!isDBConnected()) {
+      return res.status(503).json({
+        Error: {
+          Code: "ServiceUnavailable",
+          Message: "Database not connected. Please configure MONGO_URI.",
+          RequestId: Date.now().toString()
+        }
+      });
+    }
+
     let { page = 1, brand, type } = req.query;
     page = parseInt(page, 10);
 
@@ -19,7 +31,6 @@ exports.getProducts = async (req, res, next) => {
     }
 
     const filter = {};
-
     if (brand) {
       const brands = brand.split(";");
       const invalidBrands = brands.filter(b => !VALID_BRANDS.includes(b));
@@ -81,8 +92,18 @@ exports.getProducts = async (req, res, next) => {
     next(err);
   }
 };
-
 exports.getProductById = async (req, res) => {
+  // 🔐 DB guard — MUST be first
+  if (!isDBConnected()) {
+    return res.status(503).json({
+      Error: {
+        Code: "ServiceUnavailable",
+        Message: "Database not connected. Please configure MONGO_URI.",
+        RequestId: Date.now().toString()
+      }
+    });
+  }
+
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {

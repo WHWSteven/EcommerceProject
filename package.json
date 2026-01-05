@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "seed": "node src/seed/seedProducts.js",
-    "seed:env": "MONGO_URI=\"mongodb+srv://steven125369:steven125369@cluster0.hxqhuto.mongodb.net/ecommerce?retryWrites=true&w=majority\" node src/seed/seedProducts.js"
+    "seed": "node src/seed/seedProducts.js"
   },
   "keywords": [],
   "author": "",

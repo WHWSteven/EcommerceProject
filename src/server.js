@@ -1,7 +1,7 @@
 const cors = require("cors");
 require("dotenv").config();
 const express = require("express");
-const connectDB = require("./config/db");
+const { connectDB } = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
 const path = require("path");
 
@@ -33,8 +33,8 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+connectDB();
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
